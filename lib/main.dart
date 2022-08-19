@@ -125,129 +125,232 @@ class _HomePageState extends State<HomePage> {
       if (displayElement[index] == '') {
         displayElement[index] = 'O';
         filledBoxes++;
-        if(filledBoxes != 9){
-        _computerMoviment();}
+        if (filledBoxes != 9) {
+          int filledAntigo = filledBoxes;
+          _computerMovimentWin();
+          if(filledAntigo == filledBoxes){
+          _computerMoviment();}
+          filledBoxes++;
+        }
       }
       _checkWinner();
     });
   }
 
+  void _computerMovimentWin() {
+    if ((displayElement[1] == displayElement[2] &&
+                displayElement[1] != '' &&
+                displayElement[0] == '') &&
+            displayElement[1] == "X" ||
+        (displayElement[6] == displayElement[3] &&
+                displayElement[6] != '' &&
+                displayElement[0] == '') &&
+            displayElement[6] == "X" ||
+        displayElement[8] == "X" &&
+            (displayElement[8] == displayElement[4] &&
+                displayElement[8] != '' &&
+                displayElement[0] == '')) {
+      displayElement[0] = 'X';
+    } else if ((displayElement[0] == displayElement[2] &&
+                displayElement[0] != '' &&
+                displayElement[1] == '') &&
+            displayElement[0] == "X" ||
+        (displayElement[7] == displayElement[4] &&
+                displayElement[7] != '' &&
+                displayElement[1] == '') &&
+            displayElement[7] == "X") {
+      displayElement[1] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[0] == displayElement[1] &&
+                displayElement[0] != '' &&
+                displayElement[2] == '') &&
+            displayElement[0] == "X" ||
+        (displayElement[8] == displayElement[5] &&
+                displayElement[8] != '' &&
+                displayElement[2] == '') &&
+            displayElement[8] == "X" ||
+        (displayElement[6] == displayElement[4] &&
+                displayElement[6] != '' &&
+                displayElement[2] == '') &&
+            displayElement[6] == "X") {
+      displayElement[2] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[4] == displayElement[5] &&
+                displayElement[4] != '' &&
+                displayElement[3] == '') &&
+            displayElement[4] == "X" ||
+        (displayElement[0] == displayElement[6] &&
+                displayElement[0] != '' &&
+                displayElement[3] == '') &&
+            displayElement[0] == "X") {
+      displayElement[3] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[1] == displayElement[7] &&
+                displayElement[1] != '' &&
+                displayElement[4] == '') &&
+            displayElement[1] == "X" ||
+        (displayElement[0] == displayElement[8] &&
+                displayElement[0] != '' &&
+                displayElement[4] == '') &&
+            displayElement[0] == "X" ||
+        (displayElement[2] == displayElement[6] &&
+                displayElement[2] != '' &&
+                displayElement[4] == '') &&
+            displayElement[2] == "X" ||
+        (displayElement[3] == displayElement[5] &&
+                displayElement[3] != '' &&
+                displayElement[4] == '') &&
+            displayElement[3] == "X") {
+      displayElement[4] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[3] == displayElement[4] &&
+            displayElement[3] != '' &&
+            displayElement[5] == '') && displayElement[3] == "X" ||
+        (displayElement[2] == displayElement[8] &&
+            displayElement[2] != '' &&
+            displayElement[5] == '')
+            && displayElement[2] == "X"
+    ) {
+      displayElement[5] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[2] == displayElement[4] &&
+            displayElement[2] != '' &&
+            displayElement[6] == '') && displayElement[2] == "X" ||
+        (displayElement[8] == displayElement[7] &&
+            displayElement[8] != '' &&
+            displayElement[6] == '')  && displayElement[8] == "X"||
+        (displayElement[0] == displayElement[3] &&
+            displayElement[0] != '' &&
+            displayElement[6] == '') && displayElement[0] == "X") {
+      displayElement[6] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[8] == displayElement[6] &&
+            displayElement[8] != '' &&
+            displayElement[7] == '') && displayElement[8] == "X" ||
+        (displayElement[1] == displayElement[4] &&
+            displayElement[1] != '' &&
+            displayElement[7] == '') && displayElement[1] == "X") {
+      displayElement[7] = 'X';
+      filledBoxes++;
+    } else if ((displayElement[0] == displayElement[4] &&
+            displayElement[0] != '' &&
+            displayElement[8] == '') && displayElement[0] == "X" ||
+        (displayElement[2] == displayElement[5] &&
+            displayElement[2] != '' &&
+            displayElement[8] == '') && displayElement[2] == "X" ||
+        (displayElement[6] == displayElement[7] &&
+            displayElement[6] != '' &&
+            displayElement[8] == '') && displayElement[6] == "X" ) {
+      displayElement[8] = 'X';
+      filledBoxes++;
+    }
+  }
+
   void _computerMoviment() {
     if ((displayElement[1] == displayElement[2] &&
-        displayElement[1] != '' &&
-        displayElement[0] == '') || (displayElement[6] == displayElement[3] &&
-        displayElement[6] != '' &&
-        displayElement[0] == '') || (displayElement[8] == displayElement[4] &&
-        displayElement[8] != '' &&
-        displayElement[0] == '')) {
+            displayElement[1] != '' &&
+            displayElement[0] == '') ||
+        (displayElement[6] == displayElement[3] &&
+            displayElement[6] != '' &&
+            displayElement[0] == '') ||
+        (displayElement[8] == displayElement[4] &&
+            displayElement[8] != '' &&
+            displayElement[0] == '')) {
       displayElement[0] = 'X';
-    }else
-    if((displayElement[0] == displayElement[2] &&
-        displayElement[0] != '' &&
-        displayElement[1] == '') || (displayElement[7] == displayElement[4] &&
-        displayElement[7] != '' &&
-        displayElement[1] == ''))
-    {
+    } else if ((displayElement[0] == displayElement[2] &&
+            displayElement[0] != '' &&
+            displayElement[1] == '') ||
+        (displayElement[7] == displayElement[4] &&
+            displayElement[7] != '' &&
+            displayElement[1] == '')) {
       displayElement[1] = 'X';
-    } else
-    if((displayElement[0] == displayElement[1] &&
-        displayElement[0] != '' &&
-        displayElement[2] == '') || (displayElement[8] == displayElement[5] &&
-        displayElement[8] != '' &&
-        displayElement[2] == '') || (displayElement[6] == displayElement[4] &&
-        displayElement[6] != '' &&
-        displayElement[2] == ''))
-    {
+    } else if ((displayElement[0] == displayElement[1] &&
+            displayElement[0] != '' &&
+            displayElement[2] == '') ||
+        (displayElement[8] == displayElement[5] &&
+            displayElement[8] != '' &&
+            displayElement[2] == '') ||
+        (displayElement[6] == displayElement[4] &&
+            displayElement[6] != '' &&
+            displayElement[2] == '')) {
       displayElement[2] = 'X';
-    } else
-    if((displayElement[4] == displayElement[5] &&
-        displayElement[4] != '' &&
-        displayElement[3] == '') || (displayElement[0] == displayElement[6] &&
-        displayElement[0] != '' &&
-        displayElement[3] == ''))
-    {
+    } else if ((displayElement[4] == displayElement[5] &&
+            displayElement[4] != '' &&
+            displayElement[3] == '') ||
+        (displayElement[0] == displayElement[6] &&
+            displayElement[0] != '' &&
+            displayElement[3] == '')) {
       displayElement[3] = 'X';
-    } else
-    if((displayElement[1] == displayElement[7] &&
-        displayElement[1] != '' &&
-        displayElement[4] == '') || (displayElement[0] == displayElement[8] &&
-        displayElement[0] != '' &&
-        displayElement[4] == '') || (displayElement[2] == displayElement[6] &&
-        displayElement[2] != '' &&
-        displayElement[4] == '') || (displayElement[3] == displayElement[5] &&
-        displayElement[3] != '' &&
-        displayElement[4] == ''))
-    {
+    } else if ((displayElement[1] == displayElement[7] &&
+            displayElement[1] != '' &&
+            displayElement[4] == '') ||
+        (displayElement[0] == displayElement[8] &&
+            displayElement[0] != '' &&
+            displayElement[4] == '') ||
+        (displayElement[2] == displayElement[6] &&
+            displayElement[2] != '' &&
+            displayElement[4] == '') ||
+        (displayElement[3] == displayElement[5] &&
+            displayElement[3] != '' &&
+            displayElement[4] == '')) {
       displayElement[4] = 'X';
-    } else
-    if((displayElement[3] == displayElement[4] &&
-        displayElement[3] != '' &&
-        displayElement[5] == '') || (displayElement[2] == displayElement[8] &&
-        displayElement[2] != '' &&
-        displayElement[5] == '')
-    )
-    {
+    } else if ((displayElement[3] == displayElement[4] &&
+            displayElement[3] != '' &&
+            displayElement[5] == '') ||
+        (displayElement[2] == displayElement[8] &&
+            displayElement[2] != '' &&
+            displayElement[5] == '')) {
       displayElement[5] = 'X';
-    }
-    else if(
-    (displayElement[2] == displayElement[4] &&
-        displayElement[2] != '' &&
-        displayElement[6] == '') ||
+    } else if ((displayElement[2] == displayElement[4] &&
+            displayElement[2] != '' &&
+            displayElement[6] == '') ||
         (displayElement[8] == displayElement[7] &&
             displayElement[8] != '' &&
             displayElement[6] == '') ||
         (displayElement[0] == displayElement[3] &&
             displayElement[0] != '' &&
-            displayElement[6] == '')
-    ) {
+            displayElement[6] == '')) {
       displayElement[6] = 'X';
-    }
-    else if(
-    (displayElement[8] == displayElement[6] &&
-        displayElement[8] != '' &&
-        displayElement[7] == '') ||  (displayElement[1] == displayElement[4] &&
-        displayElement[1] != '' &&
-        displayElement[7] == '')
-    ) {
+    } else if ((displayElement[8] == displayElement[6] &&
+            displayElement[8] != '' &&
+            displayElement[7] == '') ||
+        (displayElement[1] == displayElement[4] &&
+            displayElement[1] != '' &&
+            displayElement[7] == '')) {
       displayElement[7] = 'X';
-    }
-    else if(
-    (displayElement[0] == displayElement[4] &&
-        displayElement[0] != '' &&
-        displayElement[8] == '') || (displayElement[2] == displayElement[5] &&
-        displayElement[2] != '' &&
-        displayElement[8] == '') || (displayElement[6] == displayElement[7] &&
-        displayElement[6] != '' &&
-        displayElement[8] == '')
-    ) {
+    } else if ((displayElement[0] == displayElement[4] &&
+            displayElement[0] != '' &&
+            displayElement[8] == '') ||
+        (displayElement[2] == displayElement[5] &&
+            displayElement[2] != '' &&
+            displayElement[8] == '') ||
+        (displayElement[6] == displayElement[7] &&
+            displayElement[6] != '' &&
+            displayElement[8] == '')) {
       displayElement[8] = 'X';
-    }else{
+    } else {
       _computerMovimentAleatory();
     }
-    filledBoxes++;
   }
+
   void _computerMovimentAleatory() {
-      int i = Random().nextInt(8);
-      if(displayElement[3] == '' && filledBoxes == 3){
-        displayElement[3] = 'X';
-      }else
-      if(displayElement[4] == 'O' && filledBoxes == 1){
-        displayElement[2] = 'X';
-      }else
-      if(displayElement[4] == ''){
-        displayElement[4] = 'X';
-      }else if(i%2 > 0 && filledBoxes == 3 && displayElement[i] == ''){
+    int i = Random().nextInt(8);
+    if (displayElement[3] == '' && filledBoxes == 3) {
+      displayElement[3] = 'X';
+    } else if (displayElement[4] == 'O' && filledBoxes == 1) {
+      displayElement[2] = 'X';
+    } else if (displayElement[4] == '') {
+      displayElement[4] = 'X';
+    } else if (i % 2 > 0 && filledBoxes == 3 && displayElement[i] == '') {
+      displayElement[i] = 'X';
+    } else {
+      if (displayElement[i] == '') {
         displayElement[i] = 'X';
-      }else{
-        if(displayElement[i] == ''){
-          displayElement[i] = 'X';
-        }else{
-          _computerMovimentAleatory();
-        }
+      } else {
+        _computerMovimentAleatory();
       }
-
+    }
   }
-
 
   void _checkWinner() {
     // Checking rows
